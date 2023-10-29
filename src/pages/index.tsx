@@ -4,7 +4,7 @@ import { ThreeDots } from 'react-loader-spinner';
 
 export default function Home() {
   const [loading, setLoading] = useState(false)
-  const [products, setProducts] = useState([]);
+  const [products, setProducts]: any = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,13 +39,12 @@ export default function Home() {
           color="#4fa94d"
           ariaLabel="three-dots-loading"
           wrapperStyle={{ display: 'flex', justifyContent: 'center' }}
-          wrapperClassName=""
           visible={true}
         /> : (
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <h2 className="sr-only">Products</h2>
             <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-              {products?.map((product) => (
+              {products?.map((product: any) => (
                 <a key={product?.ProductID} href='#' className="group">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                     <img
