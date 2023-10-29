@@ -80,6 +80,8 @@ export default function Home() {
     setSearchItem(value.target.value)
   }
 
+  console.log('first', filteredProducts)
+
   return (
     <>
       <Navbar searchItem={searchItem} handleChange={handleChange} />
@@ -107,9 +109,33 @@ export default function Home() {
                       className="h-full w-full object-cover object-center group-hover:opacity-75"
                     />
                   </div>
-                  <h3 className="mt-4 text-sm text-gray-700">{product?.Name}</h3>
-                  <p className="mt-1 text-sm font-medium text-gray-900">₹{product?.Price}</p>
-                  <p className="mt-1 text-base font-medium text-green-700">Quantity: {product?.Quantity}</p>
+                  <h3 className="mt-4 text-sm text-gray-700 text-center">{product?.Name}</h3>
+                  <table className="table-fixed w-full text-center mt-2">
+                    <thead>
+                      <tr>
+                        <th className='font-normal'>Size</th>
+                        <th className='font-normal'>Price</th>
+                        <th className='font-normal'>Stock</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className='font-medium text-sm'>S</td>
+                        <td className='font-medium text-sm'>₹{product?.PriceS}</td>
+                        <td className='font-medium text-sm text-green-700'>{product?.QuantityS || 'Not in stock'}</td>
+                      </tr>
+                      <tr>
+                        <td className='font-medium text-sm'>M</td>
+                        <td className='font-medium text-sm'>₹{product?.PriceM}</td>
+                        <td className='font-medium text-sm text-green-700'>{product?.QuantityM || 'Not in stock'}</td>
+                      </tr>
+                      <tr>
+                        <td className='font-medium text-sm'>L</td>
+                        <td className='font-medium text-sm'>₹{product?.PriceL}</td>
+                        <td className='font-medium text-sm text-green-700'>{product.QuantityL || 'Not in stock'}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </a>
               )) : (
                 <p className='text-center'> No Products Found</p>
